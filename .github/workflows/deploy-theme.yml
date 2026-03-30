@@ -1,0 +1,36 @@
+name: Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-theme.yml'
+      - 'wp-content/themes/rane-starter/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy theme via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./wp-content/themes/rane-starter/
+          server-dir: ${{ secrets.FTP_BASE_DIR }}/wp-content/themes/sprayrite/
+          exclude: |
+            **/.DS_Store
+            **/Thumbs.db
+            **/README.md
+            **/readme.txt
+            **/_dev/**
+            **/*.log
+            **/error_log
