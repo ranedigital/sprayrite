@@ -10,7 +10,10 @@ $ftr_opts_address = get_field( 'company_addr_opt', 'options' ) ? get_field( 'com
 $ftr_opts_tel    = get_field( 'company_tel_opt', 'options' ) ? get_field( 'company_tel_opt', 'options' ) : '07 7330 05020';
 $ftr_opts_email  = get_field( 'company_email_opt', 'options' ) ? get_field( 'company_email_opt', 'options' ) : 'info@sprayriteagri.co.uk';
 
-$ftr_opts_address = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( str_ireplace( array( '<br>', '<br/>', '<br />' ), ' ', $ftr_opts_address ) ) ) );
+$ftr_opts_address = str_ireplace( array( '<br>', '<br/>', '<br />' ), "\n", $ftr_opts_address );
+$ftr_opts_address = preg_replace( "/\r\n|\r/", "\n", wp_strip_all_tags( $ftr_opts_address ) );
+$ftr_opts_address = preg_replace( "/\n{2,}/", "\n", $ftr_opts_address );
+$ftr_opts_address = trim( $ftr_opts_address );
 
 $ftr_opts_facebook = get_field( 'facebook_link_opt', 'options' );
 $ftr_opts_insta    = get_field( 'instagram_link_opt', 'options' );
@@ -71,7 +74,7 @@ $footer_info_links = array(
 
 				<div class="sprayrite-footer__col ag-fade-item" data-ag-fade-item style="--ag-fade-delay:360ms;">
 					<h2 class="sprayrite-footer__title"><?php echo esc_html( $site_name ); ?></h2>
-					<div class="sprayrite-footer__address"><?php echo esc_html( $ftr_opts_address ); ?></div>
+					<div class="sprayrite-footer__address"><?php echo nl2br( esc_html( $ftr_opts_address ) ); ?></div>
 					<div class="sprayrite-footer__contact">
 						<a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $ftr_opts_tel ) ); ?>"><?php echo esc_html( $ftr_opts_tel ); ?></a>
 						<a href="mailto:<?php echo esc_attr( $ftr_opts_email ); ?>"><?php echo esc_html( $ftr_opts_email ); ?></a>
