@@ -10,6 +10,8 @@ $ftr_opts_address = get_field( 'company_addr_opt', 'options' ) ? get_field( 'com
 $ftr_opts_tel    = get_field( 'company_tel_opt', 'options' ) ? get_field( 'company_tel_opt', 'options' ) : '07 7330 05020';
 $ftr_opts_email  = get_field( 'company_email_opt', 'options' ) ? get_field( 'company_email_opt', 'options' ) : 'info@sprayriteagri.co.uk';
 
+$ftr_opts_address = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( str_ireplace( array( '<br>', '<br/>', '<br />' ), ' ', $ftr_opts_address ) ) ) );
+
 $ftr_opts_facebook = get_field( 'facebook_link_opt', 'options' );
 $ftr_opts_insta    = get_field( 'instagram_link_opt', 'options' );
 $theme_logo_path   = get_template_directory() . '/images/sprayritelogo.svg';
