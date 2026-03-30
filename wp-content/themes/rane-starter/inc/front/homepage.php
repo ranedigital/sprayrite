@@ -81,7 +81,7 @@ $review_cards      = rane_digital_get_reviews( 3 );
 					<div class="container">
 						<div class="sprayrite-hero__content">
 							<h1 class="sprayrite-hero__title">
-								<span><?php echo esc_html( $slide['title_line_1'] ); ?></span>
+								<span class="sprayrite-hero__title-line sprayrite-hero__title-line--single"><?php echo esc_html( $slide['title_line_1'] ); ?></span>
 								<span><?php echo esc_html( $slide['title_line_2'] ); ?></span>
 							</h1>
 							<p class="sprayrite-hero__offer">

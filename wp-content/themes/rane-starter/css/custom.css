@@ -410,7 +410,7 @@ h1, h2, h3, h4, h5, h6,
 
 .home-link__logo--sprayrite {
   height: auto;
-  max-width: 228px;
+  max-width: 114px;
   width: 100%;
 }
 
@@ -527,8 +527,10 @@ h1, h2, h3, h4, h5, h6,
 
 .main-browse-nav a {
   color: var(--sprayrite-ink);
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
   text-decoration: none;
+  text-transform: none;
 }
 
 .sprayrite-home,
@@ -556,7 +558,7 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
   object-fit: cover;
   object-position: center;
-  transform: scaleX(-1);
+  transform: scaleY(-1);
   width: 100%;
 }
 
@@ -567,7 +569,7 @@ h1, h2, h3, h4, h5, h6,
 
 .sprayrite-hero__content {
   max-width: 540px;
-  padding: 4.5rem 0;
+  padding: 4.5rem 0 6.5rem;
 }
 
 .sprayrite-hero__title {
@@ -579,6 +581,10 @@ h1, h2, h3, h4, h5, h6,
 
 .sprayrite-hero__title span {
   display: block;
+}
+
+.sprayrite-hero__title-line--single {
+  white-space: nowrap;
 }
 
 .sprayrite-hero__offer {
@@ -605,6 +611,7 @@ h1, h2, h3, h4, h5, h6,
 
 .sprayrite-usp {
   margin-top: -1.5rem;
+  padding-bottom: 2.5rem;
   position: relative;
   z-index: 2;
 }
