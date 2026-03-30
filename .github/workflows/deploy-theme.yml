@@ -25,7 +25,7 @@ jobs:
           protocol: ${{ secrets.FTP_PROTOCOL }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./wp-content/themes/rane-starter/
-          server-dir: ${{ secrets.FTP_BASE_DIR }}/wp-content/themes/sprayrite/
+          server-dir: ${{ secrets.FTP_BASE_DIR }}/wp-content/themes/rane-starter/
           exclude: |
             **/.DS_Store
             **/Thumbs.db
