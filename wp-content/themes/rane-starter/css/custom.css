@@ -746,6 +746,10 @@ h1, h2, h3, h4, h5, h6,
   padding: 3.5rem 0;
 }
 
+.sprayrite-feature-tiles {
+  padding-top: 0;
+}
+
 .sprayrite-feature-tiles__grid {
   display: grid;
   gap: 1.25rem;
