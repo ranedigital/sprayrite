@@ -69,7 +69,7 @@ $footer_info_links = array(
 
 				<div class="sprayrite-footer__col ag-fade-item" data-ag-fade-item style="--ag-fade-delay:360ms;">
 					<h2 class="sprayrite-footer__title"><?php echo esc_html( $site_name ); ?></h2>
-					<div class="sprayrite-footer__address"><?php echo nl2br( esc_html( $ftr_opts_address ) ); ?></div>
+					<div class="sprayrite-footer__address"><?php echo esc_html( $ftr_opts_address ); ?></div>
 					<div class="sprayrite-footer__contact">
 						<a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $ftr_opts_tel ) ); ?>"><?php echo esc_html( $ftr_opts_tel ); ?></a>
 						<a href="mailto:<?php echo esc_attr( $ftr_opts_email ); ?>"><?php echo esc_html( $ftr_opts_email ); ?></a>
