@@ -7,6 +7,7 @@
 $company_logo_opt = get_field( 'company_logo_opt', 'option' );
 $company_logo_opt_url = ! empty( $company_logo_opt['url'] ) ? $company_logo_opt['url'] : '';
 $company_name_opt = get_field( 'company_name_opt', 'option' );
+$theme_logo_url = get_template_directory_uri() . '/images/sprayritelogo.svg';
 $search_placeholder = 'Search for products';
 $account_url = rane_digital_has_woocommerce() ? wc_get_page_permalink( 'myaccount' ) : wp_login_url();
 $cart_url    = rane_digital_has_woocommerce() ? wc_get_cart_url() : home_url( '/cart/' );
@@ -57,10 +58,16 @@ $menu_items = array(
 	<div class="container">
 		<div class="main-header__utility">
 			<div class="main-header__col main-header__col--logo">
-				<a href="/" class="home-link home-link--placeholder">
-					<span class="home-link__placeholder-box">
-						<span class="home-link__placeholder-text">logo</span>
-					</span>
+				<a href="/" class="home-link<?php echo file_exists( get_template_directory() . '/images/sprayritelogo.svg' ) ? '' : ' home-link--placeholder'; ?>">
+					<?php if ( file_exists( get_template_directory() . '/images/sprayritelogo.svg' ) ) : ?>
+						<img src="<?php echo esc_url( $theme_logo_url ); ?>" alt="<?php echo esc_attr( $company_name_opt ? $company_name_opt : get_bloginfo( 'name' ) ); ?>" class="home-link__logo home-link__logo--sprayrite">
+					<?php elseif ( $company_logo_opt_url ) : ?>
+						<img src="<?php echo esc_url( $company_logo_opt_url ); ?>" alt="<?php echo esc_attr( $company_name_opt ? $company_name_opt : get_bloginfo( 'name' ) ); ?>" class="home-link__logo">
+					<?php else : ?>
+						<span class="home-link__placeholder-box">
+							<span class="home-link__placeholder-text">logo</span>
+						</span>
+					<?php endif; ?>
 				</a>
 			</div>
 

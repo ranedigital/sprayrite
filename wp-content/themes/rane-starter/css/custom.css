@@ -408,6 +408,12 @@ h1, h2, h3, h4, h5, h6,
   max-width: 220px;
 }
 
+.home-link__logo--sprayrite {
+  height: auto;
+  max-width: 228px;
+  width: 100%;
+}
+
 .home-link--placeholder {
   display: inline-block !important;
 }
