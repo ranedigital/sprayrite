@@ -1,0 +1,32 @@
+.login #loginform {
+	background: rgba(0,0,0,0.7) !important;
+}
+
+.login h1 a {
+	background-image: url('site-logo.gif') !important;
+    width: auto;
+    height: 150px;
+    background-size: contain;
+}
+
+.login #backtoblog a, .login #nav a {
+	color: white;
+}
+
+.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
+	color: #023960;
+}
+
+body.login {
+  background-image: linear-gradient(rgba(0, 0, 0, 1),rgba(0, 0, 0, 0.3)), url("wp-login-bg.jpg");    
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color: #023960;
+}
+
+body.login input[type="password"],
+body.login input[type="text"]{
+  background: rgba(0,0,0,0.5);
+  color: white !important;
+}

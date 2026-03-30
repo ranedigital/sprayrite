@@ -1,0 +1,423 @@
+@import url("https://use.typekit.net/nry3izf.css");
+
+/* Login Form Background */
+.login #loginform {
+  background: rgba(0, 0, 0, 0.5) !important;
+  animation: fadeIn 1s ease-out;
+}
+
+.language-switcher {
+  display: none;
+}
+
+/* Stacked Logos */
+body.login #login h1 {
+  display: flex;
+  flex-direction: column;
+  /* Stack vertically */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* Space between logos */
+  position: relative;
+  animation: slideDown 1s ease-out;
+}
+
+/* First Logo (site-logo.gif) */
+body.login #login h1:before {
+  content: '';
+  display: block;
+  width: 150px;
+  /* Adjust width */
+  height: 75px;
+  /* Adjust height */
+  background-image: url('site-logo.gif');
+  /* Adjust path */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeInScale 1.2s ease-out;
+}
+
+/* Link Image (link.svg) */
+body.login #login h1 a {
+  position: relative;
+  width: 40px;
+  /* Adjust width */
+  height: 40px;
+  /* Adjust height */
+  margin-top: 10px !important;
+  margin-bottom: -15px !important;
+  background-image: url('link.svg');
+  /* Adjust paths */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bounce 1.5s infinite alternate ease-in-out;
+}
+
+/* Last Logo (client-logo.svg) */
+body.login #login h1:after {
+  content: '';
+  display: block;
+  width: 150px;
+  /* Adjust width */
+  height: 75px;
+  /* Adjust height */
+  background-image: url('client-logo.png');
+  /* Adjust path */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeInScale 1.2s ease-out;
+}
+
+/* Hover Effects for Logos */
+.login h1 a:hover {
+  filter: brightness(1.2);
+  transition: all 0.3s ease;
+}
+
+/* Branding Colors and Typography */
+body.login {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  /* Alternative for Gotham Book */
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3)), url("wp-login-bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color: #023960;
+  /* Your dark blue branding color */
+  color: white;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Form Labels and Inputs */
+body.login #login form label,
+body.login #login form input {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  /* Body text */
+  font-size: 18px;
+  color: white;
+  animation: fadeInUp 1s ease-out;
+  background-color: black;
+}
+
+/* Input Fields Animation on Focus */
+body.login input[type="password"]:focus,
+body.login input[type="text"]:focus {
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px #84C4F0;
+  animation: pulse 1.5s infinite ease-in-out;
+  color: #ffffff !important;
+}
+
+/* Submit Button */
+body.login #login form .submit input[type="submit"] {
+  font-family: 'Proxima Nova Extra Bold', Arial, sans-serif; /* Bold for buttons */
+  font-size: 16px;
+  color: white; /* Text color */
+  background-color: #84C4F0; /* Light blue from branding */
+  border: none;
+  border-radius: 5px;
+  position: relative; /* Required for pseudo-element positioning */
+  overflow: hidden; /* Ensure the swipe effect stays inside the button */
+  padding: 7.5px 20px;
+  line-height: 1.3;
+  transition: transform 0.3s ease;
+  animation: slideUp 1.2s ease-out;
+  z-index: 1; /* Ensure this element is above the pseudo-element */
+}
+
+/* Add the swipe effect using pseudo-elements */
+body.login #login form .submit input[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen to the left */
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Swipe highlight color */
+  transform: skewX(-30deg); /* Create an angled effect */
+  z-index: 0; /* Place it below the button text */
+  transition: left 0.4s ease-in-out;
+}
+
+/* Hover Effect */
+body.login #login form .submit input[type="submit"]:hover {
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Animate the swipe on hover */
+body.login #login form .submit input[type="submit"]:hover::before {
+  left: 100%; /* Slide across to the right */
+}
+
+/* Navigation and Back-to-Blog Links */
+body.login #nav a,
+body.login #backtoblog a {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 16px;
+  color: #84C4F0;
+  /* Light blue from branding */
+  text-decoration: none;
+  animation: fadeIn 1.5s ease-out;
+}
+
+body.login #nav a:hover,
+body.login #backtoblog a:hover {
+  color: #ffffff;
+  /* Reverse on hover for emphasis */
+}
+
+
+/* Floating CTA Button */
+body.login #cta-float {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #84C4F0;
+  color: #023960;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Proxima Nova Extra Bold', Arial, sans-serif;
+  font-size: 14px;
+  z-index: 10;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+body.login #cta-float a {
+  text-decoration: none;
+}
+
+body.login #cta-tooltip {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: #023960;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 14px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+body.login #cta-float:hover+#cta-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateY(-50%) translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeText {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Google Ad Container */
+body.login .ad-logo {
+  width: 40px;
+  height: 40px;
+  margin-top: -10px
+}
+
+body.login #google-ad-container {
+  max-width: 650px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Dark background */
+  padding: 15px 20px;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  z-index: 10;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  /* Ensure padding is included in width/height calculations */
+}
+
+/* Sponsored Text */
+body.login #google-ad-container .ad-sponsored {
+  font-size: 18px;
+  color: #84C4F0;
+  /* Light blue */
+  margin-right: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Static Header */
+body.login #google-ad-container .ad-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+body.login .ad-web-address a {
+  color: #bdc1c6;
+  text-decoration: none;
+}
+
+/* Rotating Content */
+body.login #google-ad-container .ad-items-container {
+  position: relative;
+  height: 100px;
+  /* Fixed height for consistent rotation */
+  overflow: hidden;
+}
+
+body.login #google-ad-container .ad-item {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  /* Hidden by default */
+  transform: translateY(100%);
+  /* Start off-screen below */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  gap: 10px;
+  /* Space between content and button */
+  padding-bottom: 10px;
+  /* Extra space for button */
+}
+
+body.login #google-ad-container .ad-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  /* Slide into view */
+}
+
+body.login #google-ad-container .ad-item.leaving {
+  opacity: 0;
+  transform: translateY(-100%);
+  /* Slide up and out of view */
+}
+
+/* Ad Content Styles */
+body.login #google-ad-container .ad-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #84C4F0;
+  /* Light blue */
+  margin: 0 0 5px;
+}
+
+body.login #google-ad-container .ad-content p {
+  font-size: 14px;
+  margin: 0 0 5px;
+  word-wrap: break-word;
+  /* Break long words */
+  overflow: hidden;
+  /* Hide content overflow */
+  text-overflow: ellipsis;
+  /* Add ellipsis for overflow text */
+}
+
+body.login #google-ad-container .ad-cta a {
+  display: inline-block;
+  font-size: 14px;
+  color: white;
+  background-color: #84C4F0;
+  /* Light blue */
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  /* Push button to the bottom if content wraps */
+}
+
+body.login #google-ad-container .ad-cta a:hover {
+  background-color: #023960;
+  /* Darker blue */
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 768px) {
+  body.login #google-ad-container {
+    padding: 10px;
+    /* Reduce padding for smaller screens */
+  }
+
+  body.login #google-ad-container .ad-content h3 {
+    font-size: 16px;
+    /* Smaller font size for headlines */
+  }
+
+  body.login #google-ad-container .ad-content p {
+    font-size: 12px;
+    /* Smaller font size for descriptions */
+    margin-bottom: 8px;
+    /* Ensure proper spacing */
+  }
+
+  body.login #google-ad-container .ad-cta a {
+    font-size: 12px;
+    /* Adjust button font size for mobile */
+    padding: 4px 8px;
+    /* Adjust padding for smaller screens */
+  }
+}
+.login .message, .login .notice, .login .success {
+  background: none!important;
+}
+
+
+/* Hide Google Ad Container on smaller screens */
+@media (max-width: 600px) {
+  body.login #google-ad-container {
+      display: none!important;
+  }
+}
