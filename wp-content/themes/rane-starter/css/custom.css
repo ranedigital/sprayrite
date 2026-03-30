@@ -575,8 +575,15 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
   object-fit: cover;
   object-position: center;
-  transform: scaleX(-1);
   width: 100%;
+}
+
+.js-sprayrite-hero:not(.slick-initialized) .sprayrite-hero__slide:not(:first-child) {
+  display: none;
+}
+
+.js-sprayrite-hero.slick-initialized .sprayrite-hero__slide {
+  display: flex !important;
 }
 
 .sprayrite-hero__slide .container {

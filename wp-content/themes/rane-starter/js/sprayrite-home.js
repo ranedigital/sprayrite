@@ -1,7 +1,9 @@
 (function($) {
 	$(function() {
 		if ($('.js-sprayrite-hero').length) {
-			$('.js-sprayrite-hero').slick({
+			$('.js-sprayrite-hero').on('init', function() {
+				$(this).addClass('is-ready');
+			}).slick({
 				arrows: false,
 				dots: true,
 				autoplay: true,
