@@ -140,32 +140,42 @@ add_action( 'widgets_init', 'rane_digital_widgets_init' );
  * Enqueue scripts and styles.
  */
 function rane_digital_scripts() {
-	wp_enqueue_style( 'rane-starter-style', get_stylesheet_uri(), array(), _S_VERSION );
+	$stylesheet_path        = get_stylesheet_directory() . '/style.css';
+	$navigation_script_path = get_template_directory() . '/js/navigation.js';
+	$slick_css_path         = get_stylesheet_directory() . '/vendor/slick/slick.css';
+	$slick_theme_css_path   = get_stylesheet_directory() . '/vendor/slick/slick-theme.css';
+	$animate_css_path       = get_stylesheet_directory() . '/css/animate.css';
+	$custom_css_path        = get_template_directory() . '/css/custom.css';
+	$wow_script_path        = get_stylesheet_directory() . '/js/wow.min.js';
+	$slick_script_path      = get_stylesheet_directory() . '/vendor/slick/slick.min.js';
+	$site_script_path       = get_stylesheet_directory() . '/js/functions.js';
+	$sprayrite_script_path  = get_stylesheet_directory() . '/js/sprayrite-home.js';
+
+	wp_enqueue_style( 'rane-starter-style', get_stylesheet_uri(), array(), file_exists( $stylesheet_path ) ? filemtime( $stylesheet_path ) : _S_VERSION );
 	wp_style_add_data( 'rane-starter-style', 'rtl', 'replace' );
-	wp_enqueue_script( 'rane-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'rane-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), file_exists( $navigation_script_path ) ? filemtime( $navigation_script_path ) : _S_VERSION, true );
 
 	// Google Font (swap our URL to suit - (https://fonts.google.com/)
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap', false );
 
-	wp_enqueue_style( 'slick-css', get_stylesheet_directory_uri() . '/vendor/slick/slick.css');				// Slick Slider CSS
-	wp_enqueue_style( 'slick-theme-css', get_stylesheet_directory_uri() . '/vendor/slick/slick-theme.css');	// Slick Slider Theme CSS
-	wp_enqueue_style( 'animate-style', get_stylesheet_directory_uri() . '/css/animate.css');				// Load animate css
+	wp_enqueue_style( 'slick-css', get_stylesheet_directory_uri() . '/vendor/slick/slick.css', array(), file_exists( $slick_css_path ) ? filemtime( $slick_css_path ) : null );				// Slick Slider CSS
+	wp_enqueue_style( 'slick-theme-css', get_stylesheet_directory_uri() . '/vendor/slick/slick-theme.css', array( 'slick-css' ), file_exists( $slick_theme_css_path ) ? filemtime( $slick_theme_css_path ) : null );	// Slick Slider Theme CSS
+	wp_enqueue_style( 'animate-style', get_stylesheet_directory_uri() . '/css/animate.css', array(), file_exists( $animate_css_path ) ? filemtime( $animate_css_path ) : null );				// Load animate css
 
 	/**
 	 * For the custom.css stylesheet 
 	 */
 	//wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/custom.css'); // Uncomment when live
-	$custom_css_path = get_template_directory() . '/css/custom.css'; 		// Comment out this line when live
-	$custom_css_version = date('ymd-Gis', filemtime($custom_css_path));     // Comment out this line when live
-	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/custom.css', array(), $custom_css_version); // Comment out this line when live
+	$custom_css_version = file_exists( $custom_css_path ) ? filemtime( $custom_css_path ) : _S_VERSION;
+	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/css/custom.css', array(), $custom_css_version);
 
 	wp_enqueue_script( 'fontawesome-script', "https://kit.fontawesome.com/b5fa6afcff.js", '', '', false  );				// Font Awesome
-	wp_enqueue_script( 'wow-script', get_stylesheet_directory_uri() . '/js/wow.min.js', array( 'jquery' ), '', true );	// Wow
-	wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/vendor/slick/slick.min.js', array( 'wow-script' ), '', true );	// Slick Slider JS
-	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/functions.js', array( 'slick-script' ), '', true  );		// Custom JS File
+	wp_enqueue_script( 'wow-script', get_stylesheet_directory_uri() . '/js/wow.min.js', array( 'jquery' ), file_exists( $wow_script_path ) ? filemtime( $wow_script_path ) : null, true );	// Wow
+	wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/vendor/slick/slick.min.js', array( 'wow-script' ), file_exists( $slick_script_path ) ? filemtime( $slick_script_path ) : null, true );	// Slick Slider JS
+	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/functions.js', array( 'slick-script' ), file_exists( $site_script_path ) ? filemtime( $site_script_path ) : null, true  );		// Custom JS File
 
 	if ( is_front_page() || is_post_type_archive( 'sprayrite_review' ) ) {
-		wp_enqueue_script( 'sprayrite-home-script', get_stylesheet_directory_uri() . '/js/sprayrite-home.js', array( 'slick-script' ), _S_VERSION, true );
+		wp_enqueue_script( 'sprayrite-home-script', get_stylesheet_directory_uri() . '/js/sprayrite-home.js', array( 'slick-script' ), file_exists( $sprayrite_script_path ) ? filemtime( $sprayrite_script_path ) : _S_VERSION, true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
