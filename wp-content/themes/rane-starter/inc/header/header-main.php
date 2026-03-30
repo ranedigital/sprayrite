@@ -18,24 +18,49 @@ $product_categories = rane_digital_has_woocommerce() ? get_terms(
 		'parent'     => 0,
 	)
 ) : array();
-
-// Nav
-$nav_args = array(
-	"menu" => "Main Navigation", // The menu to show
-	"container" => false, // remove wrapping container
-	"menu_class" => "main-browse-nav" // set class of UL
+$menu_items = array(
+	array(
+		'label' => 'Shop',
+		'url'   => rane_digital_has_woocommerce() ? get_permalink( wc_get_page_id( 'shop' ) ) : home_url( '/shop/' ),
+	),
+	array(
+		'label' => 'Weed Killers',
+		'url'   => home_url( '/product-category/weed-killers/' ),
+	),
+	array(
+		'label' => 'Fertilisers',
+		'url'   => home_url( '/product-category/fertilisers/' ),
+	),
+	array(
+		'label' => 'Seeds',
+		'url'   => home_url( '/product-category/seeds/' ),
+	),
+	array(
+		'label' => 'Plant & Pest Control',
+		'url'   => home_url( '/product-category/plant-pest-control/' ),
+	),
+	array(
+		'label' => 'Landscaping',
+		'url'   => home_url( '/product-category/landscaping/' ),
+	),
+	array(
+		'label' => 'Equipment',
+		'url'   => home_url( '/product-category/equipment/' ),
+	),
+	array(
+		'label' => 'Contact Us',
+		'url'   => home_url( '/contact-us/' ),
+	),
 );
 ?>
 <div class="main-header">
 	<div class="container">
 		<div class="main-header__utility">
 			<div class="main-header__col main-header__col--logo">
-				<a href="/" class="home-link">
-					<?php if ( $company_logo_opt_url ) : ?>
-						<img src="<?php echo esc_url( $company_logo_opt_url ); ?>" alt="<?php echo esc_attr( $company_name_opt ); ?>" class="home-link__logo">
-					<?php else : ?>
-						<span class="home-link__text"><?php echo esc_html( $company_name_opt ? $company_name_opt : get_bloginfo( 'name' ) ); ?></span>
-					<?php endif; ?>
+				<a href="/" class="home-link home-link--placeholder">
+					<span class="home-link__placeholder-box">
+						<span class="home-link__placeholder-text">logo</span>
+					</span>
 				</a>
 			</div>
 
@@ -84,7 +109,13 @@ $nav_args = array(
 	</div>
 	<nav class="main-header__nav">
 		<div class="container">
-			<?php wp_nav_menu( $nav_args ); ?>
+			<ul class="main-browse-nav">
+				<?php foreach ( $menu_items as $menu_item ) : ?>
+					<li class="main-browse-nav__item">
+						<a href="<?php echo esc_url( $menu_item['url'] ); ?>"><?php echo esc_html( $menu_item['label'] ); ?></a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
 	</nav>
 </div>

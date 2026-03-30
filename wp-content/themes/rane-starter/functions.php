@@ -145,7 +145,7 @@ function rane_digital_scripts() {
 	wp_enqueue_script( 'rane-starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	// Google Font (swap our URL to suit - (https://fonts.google.com/)
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap', false );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap', false );
 
 	wp_enqueue_style( 'slick-css', get_stylesheet_directory_uri() . '/vendor/slick/slick.css');				// Slick Slider CSS
 	wp_enqueue_style( 'slick-theme-css', get_stylesheet_directory_uri() . '/vendor/slick/slick-theme.css');	// Slick Slider Theme CSS

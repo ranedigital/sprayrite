@@ -74,7 +74,10 @@ $review_cards      = rane_digital_get_reviews( 3 );
 				$button_link = ! empty( $slide['button_link']['url'] ) ? $slide['button_link']['url'] : ( ! empty( $slide['button_link'] ) ? $slide['button_link'] : $defaults['hero_slides'][0]['button_link'] );
 				$button_text = ! empty( $slide['button_text'] ) ? $slide['button_text'] : $defaults['hero_slides'][0]['button_text'];
 				?>
-				<div class="sprayrite-hero__slide" style="background-image: url('<?php echo esc_url( $slide_image ); ?>');">
+				<div class="sprayrite-hero__slide">
+					<div class="sprayrite-hero__media">
+						<img src="<?php echo esc_url( $slide_image ); ?>" alt="" class="sprayrite-hero__image">
+					</div>
 					<div class="container">
 						<div class="sprayrite-hero__content">
 							<h1 class="sprayrite-hero__title">
@@ -120,7 +123,12 @@ $review_cards      = rane_digital_get_reviews( 3 );
 					$tile_image = ! empty( $tile['image']['url'] ) ? $tile['image']['url'] : ( ! empty( $tile['image'] ) ? $tile['image'] : '' );
 					$tile_link  = ! empty( $tile['button_link']['url'] ) ? $tile['button_link']['url'] : ( ! empty( $tile['button_link'] ) ? $tile['button_link'] : home_url( '/' ) );
 					?>
-					<article class="sprayrite-feature-tile"<?php echo $tile_image ? ' style="background-image: url(\'' . esc_url( $tile_image ) . '\');"' : ''; ?>>
+					<article class="sprayrite-feature-tile">
+						<?php if ( $tile_image ) : ?>
+							<div class="sprayrite-feature-tile__media">
+								<img src="<?php echo esc_url( $tile_image ); ?>" alt="" class="sprayrite-feature-tile__image">
+							</div>
+						<?php endif; ?>
 						<div class="sprayrite-feature-tile__body">
 							<h2><?php echo esc_html( $tile['title'] ); ?></h2>
 							<p><?php echo esc_html( $tile['text'] ); ?></p>

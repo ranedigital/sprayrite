@@ -327,11 +327,21 @@ p:first-of-type {
   --sprayrite-muted: #7e877f;
   --sprayrite-cream: #fbf8f3;
   --sprayrite-line: #d7ddd7;
+  --sprayrite-mid-grey: #8c8c8c;
+  --sprayrite-light-grey: #d9d9d9;
 }
 
 body {
   color: var(--sprayrite-ink);
   background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6,
+.main-browse-nav a,
+.top-bar__promo-link,
+.top-bar__promo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 }
 
 .site-btn.sprayrite-btn {
@@ -355,7 +365,7 @@ body {
 }
 
 .top-bar {
-  background: #fff;
+  background: #fff !important;
   border-bottom: 1px solid var(--sprayrite-line);
   color: var(--sprayrite-ink);
   padding: 10px 0;
@@ -375,7 +385,7 @@ body {
 }
 
 .main-header {
-  background: #fff;
+  background: #fff !important;
   border-bottom: 1px solid var(--sprayrite-line);
   position: sticky;
   top: 0;
@@ -396,6 +406,26 @@ body {
 
 .home-link__logo {
   max-width: 220px;
+}
+
+.home-link--placeholder {
+  display: inline-block !important;
+}
+
+.home-link__placeholder-box {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.08);
+  display: inline-flex;
+  height: 60px;
+  justify-content: center;
+  width: 228px;
+}
+
+.home-link__placeholder-text {
+  color: var(--sprayrite-ink);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .home-link__text {
@@ -495,18 +525,38 @@ body {
   text-decoration: none;
 }
 
-.sprayrite-home {
+.sprayrite-home,
+.site-header {
   background: #fff;
 }
 
 .sprayrite-hero__slide {
   align-items: center;
-  background-color: var(--sprayrite-cream);
-  background-position: center right;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(180deg, #ffffff 0%, #f6f5f0 100%);
   display: flex !important;
   min-height: 454px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sprayrite-hero__media {
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-hero__image {
+  display: block;
+  height: 100%;
+  margin-left: auto;
+  object-fit: cover;
+  object-position: center;
+  transform: scaleX(-1);
+  width: 100%;
+}
+
+.sprayrite-hero__slide .container {
+  position: relative;
+  z-index: 1;
 }
 
 .sprayrite-hero__content {
@@ -570,27 +620,56 @@ body {
 }
 
 .sprayrite-usp__card::before {
-  background: rgba(0, 0, 0, 0.1);
   content: "";
   inset: 0;
+  opacity: 0.92;
   position: absolute;
 }
 
-.sprayrite-usp__card > * {
-  position: relative;
-  z-index: 1;
+.sprayrite-usp__card--green::before {
+  background: var(--sprayrite-green);
 }
 
-.sprayrite-usp__card--green {
-  color: #fff;
+.sprayrite-usp__card--grey::before {
+  background: var(--sprayrite-mid-grey);
 }
 
+.sprayrite-usp__card--light::before {
+  background: var(--sprayrite-light-grey);
+}
+
+.sprayrite-usp__card--green,
 .sprayrite-usp__card--grey {
   color: #fff;
 }
 
 .sprayrite-usp__card--light {
   color: #4a4a4a;
+}
+
+.sprayrite-usp__card--light p,
+.sprayrite-usp__card--light h2 {
+  color: #4a4a4a;
+}
+
+.sprayrite-usp__card--green p,
+.sprayrite-usp__card--green h2,
+.sprayrite-usp__card--grey p,
+.sprayrite-usp__card--grey h2 {
+  color: #fff;
+}
+
+.sprayrite-usp__card::after {
+  content: "";
+  inset: 0;
+  opacity: 0.24;
+  position: absolute;
+  background: linear-gradient(110deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.0) 60%);
+}
+
+.sprayrite-usp__card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .sprayrite-usp__card h2 {
@@ -620,12 +699,24 @@ body {
 
 .sprayrite-feature-tile {
   background-color: #f6f6f1;
-  background-position: center;
-  background-size: cover;
   border-radius: 10px;
   min-height: 334px;
   overflow: hidden;
   position: relative;
+}
+
+.sprayrite-feature-tile__media {
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-feature-tile__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scaleX(-1);
+  width: 100%;
 }
 
 .sprayrite-feature-tile::before {
@@ -967,13 +1058,16 @@ body {
   }
 
   .sprayrite-hero__slide {
-    background-position: 68% center;
     min-height: 420px;
   }
 
   .sprayrite-hero__content {
     max-width: 280px;
     padding: 3rem 0 4rem;
+  }
+
+  .home-link__placeholder-box {
+    width: 160px;
   }
 
   .sprayrite-hero__offer {

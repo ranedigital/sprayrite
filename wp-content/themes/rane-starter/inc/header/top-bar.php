@@ -3,13 +3,8 @@
  * Site Top Bar
  */
 
-// Vars
-$promo_text = get_field( 'cta_topbar_txt_opt', 'option' );
-$promo_link = get_field( 'cta_topbar_link_opt', 'option' );
-
-if ( ! $promo_text ) {
-	$promo_text = 'We Offer Free UK Delivery';
-}
+$promo_text = 'We Offer Free UK Delivery';
+$promo_link = '';
 
 ?>
 <div class="top-bar">
