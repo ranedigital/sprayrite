@@ -316,24 +316,704 @@ p:first-of-type {
   cursor: pointer;
 }
 
-@media (min-width: 768px){
-  .top-bar {
+/* ==================== */
+/* Sprayrite Refresh
+/* ==================== */
+
+:root {
+  --sprayrite-green: #18b270;
+  --sprayrite-green-dark: #366b4f;
+  --sprayrite-ink: #16221b;
+  --sprayrite-muted: #7e877f;
+  --sprayrite-cream: #fbf8f3;
+  --sprayrite-line: #d7ddd7;
+}
+
+body {
+  color: var(--sprayrite-ink);
+  background: #fff;
+}
+
+.site-btn.sprayrite-btn {
+  background: var(--sprayrite-green);
+  border-radius: 10px;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 14px 24px;
+  text-transform: none;
+}
+
+.site-btn.sprayrite-btn:hover {
+  background: var(--sprayrite-green-dark);
+}
+
+.site-btn.sprayrite-btn--light {
+  background: #fff;
+  color: var(--sprayrite-green-dark) !important;
+}
+
+.top-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--sprayrite-line);
+  color: var(--sprayrite-ink);
+  padding: 10px 0;
+}
+
+.top-bar__row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.top-bar__promo-link,
+.top-bar__promo-text {
+  color: var(--sprayrite-ink);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid var(--sprayrite-line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.main-header__utility {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 220px 1fr auto auto;
+  padding: 1.25rem 0;
+}
+
+.main-header__col--logo {
+  min-width: 0;
+}
+
+.home-link__logo {
+  max-width: 220px;
+}
+
+.home-link__text {
+  color: var(--sprayrite-ink);
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.main-header__search-wrap {
+  align-items: center;
+  border: 1px solid #696868;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 160px 1fr 52px;
+  overflow: hidden;
+}
+
+.main-header__category-select,
+.main-header__search-input,
+.main-header__search-button {
+  appearance: none;
+  background: #fff;
+  border: 0;
+  min-height: 46px;
+}
+
+.main-header__category-select,
+.main-header__search-input {
+  color: var(--sprayrite-ink);
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.main-header__category-select {
+  border-right: 1px solid #696868;
+}
+
+.main-header__search-input {
+  width: 100%;
+}
+
+.main-header__search-button {
+  border-left: 1px solid #696868;
+  color: var(--sprayrite-ink);
+  cursor: pointer;
+}
+
+.main-header__actions {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.main-header__action-link {
+  color: var(--sprayrite-ink);
+  font-size: 18px;
+  position: relative;
+  text-decoration: none;
+}
+
+.main-header__cart-count {
+  align-items: center;
+  background: var(--sprayrite-green);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  height: 18px;
+  justify-content: center;
+  min-width: 18px;
+  position: absolute;
+  right: -10px;
+  top: -8px;
+}
+
+.main-header__burger {
+  display: none;
+}
+
+.main-header__nav {
+  border-top: 1px solid var(--sprayrite-line);
+}
+
+.main-browse-nav {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.main-browse-nav a {
+  color: var(--sprayrite-ink);
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.sprayrite-home {
+  background: #fff;
+}
+
+.sprayrite-hero__slide {
+  align-items: center;
+  background-color: var(--sprayrite-cream);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex !important;
+  min-height: 454px;
+}
+
+.sprayrite-hero__content {
+  max-width: 540px;
+  padding: 4.5rem 0;
+}
+
+.sprayrite-hero__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.02;
+  margin: 0 0 1rem;
+}
+
+.sprayrite-hero__title span {
+  display: block;
+}
+
+.sprayrite-hero__offer {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 1.9rem;
+  margin: 0 0 2rem;
+}
+
+.sprayrite-hero__offer strong {
+  color: var(--sprayrite-green);
+}
+
+.sprayrite-hero .slick-dots {
+  bottom: 1rem;
+}
+
+.sprayrite-hero .slick-dots li button:before {
+  color: var(--sprayrite-green);
+  font-size: 10px;
+}
+
+.sprayrite-usp {
+  margin-top: -1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sprayrite-usp__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.sprayrite-usp__card {
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  min-height: 122px;
+  overflow: hidden;
+  padding: 1rem;
+  position: relative;
+}
+
+.sprayrite-usp__card::before {
+  background: rgba(0, 0, 0, 0.1);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-usp__card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sprayrite-usp__card--green {
+  color: #fff;
+}
+
+.sprayrite-usp__card--grey {
+  color: #fff;
+}
+
+.sprayrite-usp__card--light {
+  color: #4a4a4a;
+}
+
+.sprayrite-usp__card h2 {
+  font-size: 1.25rem;
+  line-height: 1.1;
+  margin: 0 0 1.75rem;
+}
+
+.sprayrite-usp__card p {
+  font-size: 12px;
+  margin: 0;
+  max-width: 250px;
+}
+
+.sprayrite-feature-tiles,
+.sprayrite-product-section,
+.sprayrite-reviews,
+.sprayrite-sale-banner {
+  padding: 3.5rem 0;
+}
+
+.sprayrite-feature-tiles__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.sprayrite-feature-tile {
+  background-color: #f6f6f1;
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  min-height: 334px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sprayrite-feature-tile::before {
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.1) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-feature-tile__body {
+  max-width: 330px;
+  padding: 3rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sprayrite-feature-tile h2 {
+  font-size: 2rem;
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.sprayrite-feature-tile p {
+  font-size: 1.15rem;
+  margin: 0 0 1.5rem;
+}
+
+.sprayrite-section-heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.sprayrite-section-heading h2 {
+  color: var(--sprayrite-ink);
+  font-size: 2rem;
+  margin: 0 0 0.75rem;
+}
+
+.sprayrite-section-heading p {
+  color: var(--sprayrite-muted);
+  margin: 0 auto;
+  max-width: 480px;
+}
+
+.sprayrite-section-heading--light h2,
+.sprayrite-section-heading--light p {
+  color: #fff;
+}
+
+.sprayrite-products {
+  display: grid;
+  gap: 2rem 1.25rem;
+}
+
+.sprayrite-products--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sprayrite-products--eight {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sprayrite-product-card {
+  text-align: center;
+}
+
+.sprayrite-product-card__image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  min-height: 170px;
+  text-decoration: none;
+}
+
+.sprayrite-product-card__image img {
+  max-height: 160px;
+  object-fit: contain;
+  width: auto;
+}
+
+.sprayrite-product-card h3 {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0 auto 0.6rem;
+  max-width: 220px;
+}
+
+.sprayrite-product-card h3 a {
+  color: var(--sprayrite-ink);
+  text-decoration: none;
+}
+
+.sprayrite-product-card__price {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sprayrite-section-cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.sprayrite-sale-banner {
+  background-color: var(--sprayrite-green-dark);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.sprayrite-sale-banner::before {
+  background: rgba(28, 78, 54, 0.78);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-sale-banner__row {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.sprayrite-sale-banner__content h2 {
+  color: #fff !important;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.02;
+  margin: 0 0 1rem;
+}
+
+.sprayrite-sale-banner__offer {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+.sprayrite-sale-banner__offer strong {
+  color: var(--sprayrite-green);
+}
+
+.sprayrite-sale-banner__text {
+  font-size: 1.2rem;
+  margin: 0 0 1.75rem;
+  max-width: 520px;
+}
+
+.sprayrite-sale-banner__media img {
+  border-radius: 12px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.28);
+  display: block;
+  width: 100%;
+}
+
+.sprayrite-reviews {
+  background-color: var(--sprayrite-green-dark);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.sprayrite-reviews::before {
+  background: rgba(54, 107, 79, 0.8);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.sprayrite-reviews .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sprayrite-reviews__grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.sprayrite-review-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+}
+
+.sprayrite-review-card__stars {
+  color: var(--sprayrite-green);
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.sprayrite-review-card__text {
+  color: #222;
+  margin: 0 0 1.25rem;
+}
+
+.sprayrite-review-card__author {
+  font-weight: 700;
+  margin: 0;
+}
+
+.sprayrite-review-card__meta {
+  color: var(--sprayrite-muted);
+  margin: 0.5rem 0 0;
+}
+
+.site-footer-main {
+  background: #fff;
+  padding: 3.5rem 0 2rem;
+}
+
+.site-footer-main__row {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+}
+
+.site-footer__logo {
+  margin-bottom: 1rem;
+  max-width: 220px;
+}
+
+.site-footer__title {
+  color: var(--sprayrite-ink) !important;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.site-footer__blurb,
+.site-footer__addr,
+.site-footer__link,
+.footer-browse-nav a {
+  color: var(--sprayrite-ink);
+  text-decoration: none;
+}
+
+.footer-browse-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-browse-nav li + li,
+.site-footer__link-wrap + .site-footer__link-wrap {
+  margin-top: 0.75rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.85rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.social-icons__link {
+  color: var(--sprayrite-green-dark);
+  font-size: 18px;
+}
+
+.site-info {
+  background: var(--sprayrite-green-dark);
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.site-info__text,
+.site-info__designby a {
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.sprayrite-reviews-archive__hero {
+  background: var(--sprayrite-cream);
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+
+.sprayrite-reviews-archive__hero h1 {
+  margin: 0 0 1rem;
+}
+
+.sprayrite-reviews-archive__list {
+  padding: 2rem 0 4rem;
+}
+
+@media (max-width: 1024px) {
+  .main-header__utility {
+    grid-template-columns: 180px 1fr auto;
+  }
+
+  .main-header__actions {
+    justify-content: flex-end;
+  }
+
+  .sprayrite-usp__grid,
+  .sprayrite-feature-tiles__grid,
+  .sprayrite-products--four,
+  .sprayrite-products--eight,
+  .sprayrite-reviews__grid,
+  .site-footer-main__row,
+  .sprayrite-sale-banner__row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main-browse-nav {
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .main-header {
+    position: relative;
+  }
+
+  .main-header__utility {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .main-header__col--search,
+  .main-header__nav {
+    display: none;
+  }
+
+  .main-header__burger {
     display: block;
-    padding: 8px 0;
   }
 
-  .top-bar__row {
+  .sprayrite-hero__slide {
+    background-position: 68% center;
+    min-height: 420px;
+  }
+
+  .sprayrite-hero__content {
+    max-width: 280px;
+    padding: 3rem 0 4rem;
+  }
+
+  .sprayrite-hero__offer {
+    font-size: 1.35rem;
+  }
+
+  .sprayrite-usp {
+    margin-top: 0;
+  }
+
+  .sprayrite-usp__grid,
+  .sprayrite-feature-tiles__grid,
+  .sprayrite-products--four,
+  .sprayrite-products--eight,
+  .site-footer-main__row,
+  .sprayrite-sale-banner__row {
+    grid-template-columns: 1fr;
+  }
+
+  .sprayrite-feature-tile {
+    min-height: 280px;
+  }
+
+  .sprayrite-section-heading h2,
+  .sprayrite-feature-tile h2 {
+    font-size: 1.75rem;
+  }
+
+  .sprayrite-reviews__grid {
+    display: block;
+  }
+
+  .sprayrite-review-card {
+    margin: 0 0.5rem;
+  }
+
+  .site-info__text {
     display: flex;
-    justify-content: space-between;
-  }
-
-  .top-bar__col--contact {
-    display: flex;
-    align-items: center;
-  }
-
-  .top-bar__cta-btn {
-    padding: 5px 25px;    
+    flex-direction: column;
+    gap: 0.4rem;
   }
 }
 
@@ -1263,4 +1943,3 @@ Contact Page 2
 /* ============================================================ */
 /* Custom code starts below...
 /* ============================================================ */
-

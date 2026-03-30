@@ -3,4 +3,4 @@
  * Place all Front Page includes here
  */
 
-get_template_part( 'inc/front/slider' );
+get_template_part( 'inc/front/homepage' );

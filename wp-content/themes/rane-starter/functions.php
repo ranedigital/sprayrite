@@ -46,6 +46,8 @@ function rane_digital_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	add_theme_support( 'woocommerce' );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
@@ -162,6 +164,10 @@ function rane_digital_scripts() {
 	wp_enqueue_script( 'slick-script', get_stylesheet_directory_uri() . '/vendor/slick/slick.min.js', array( 'wow-script' ), '', true );	// Slick Slider JS
 	wp_enqueue_script( 'site-script', get_stylesheet_directory_uri() . '/js/functions.js', array( 'slick-script' ), '', true  );		// Custom JS File
 
+	if ( is_front_page() || is_post_type_archive( 'sprayrite_review' ) ) {
+		wp_enqueue_script( 'sprayrite-home-script', get_stylesheet_directory_uri() . '/js/sprayrite-home.js', array( 'slick-script' ), _S_VERSION, true );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -182,6 +188,7 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/sprayrite-home.php';
 
 /**
  * Customizer additions.

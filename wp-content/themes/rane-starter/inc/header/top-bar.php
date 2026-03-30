@@ -4,41 +4,26 @@
  */
 
 // Vars
-$company_email_opt = get_field( 'company_email_opt', 'option' );
-$company_tel_opt = get_field( 'company_tel_opt', 'option' );
-$cta_topbar_txt_opt = get_field( 'cta_topbar_txt_opt', 'option' );
-$cta_topbar_link_opt = get_field( 'cta_topbar_link_opt', 'option' );
+$promo_text = get_field( 'cta_topbar_txt_opt', 'option' );
+$promo_link = get_field( 'cta_topbar_link_opt', 'option' );
+
+if ( ! $promo_text ) {
+	$promo_text = 'We Offer Free UK Delivery';
+}
 
 ?>
 <div class="top-bar">
 	<div class="container">
 		<div class="top-bar__row">
-
-			<div class="top-bar__col top-bar__col--contact">
-				
-				<span class="top-bar__item">
-					<i class="fa-solid fa-phone"></i>
-					<a href="tel:<?php echo $company_tel_opt; ?>">
-						<?php echo $company_tel_opt; ?>
+			<div class="top-bar__col top-bar__col--promo">
+				<?php if ( $promo_link ) : ?>
+					<a href="<?php echo esc_url( $promo_link ); ?>" class="top-bar__promo-link">
+						<?php echo esc_html( $promo_text ); ?>
 					</a>
-				</span>
-
-				<span class="top-bar__item">
-					<i class="fa-solid fa-envelope"></i>
-					<a href="mailto:<?php echo $company_email_opt; ?>">
-						<?php echo $company_email_opt; ?>
-					</a>
-				</span>
-
+				<?php else : ?>
+					<span class="top-bar__promo-text"><?php echo esc_html( $promo_text ); ?></span>
+				<?php endif; ?>
 			</div>
-
-
-			<div class="top-bar__col top-bar__col--cta">
-				<a href="<?php echo $cta_topbar_link_opt; ?>" class="top-bar__cta-btn">
-					<?php echo $cta_topbar_txt_opt; ?>
-				</a>
-			</div>
-
-		</div>	
+		</div>
 	</div>
 </div>
