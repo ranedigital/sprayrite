@@ -28,8 +28,9 @@ html {
 /* ==================== */
 
 body {
-  font-family: 'Nunito Sans', sans-serif; /* Change to correct font */
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
+  font-weight: 400;
 }
 
 .post, .page {
@@ -1346,10 +1347,6 @@ body.admin-bar .slideout-menu {
 }
 
 @media (min-width: 1024px){
-  .main-header {
-    padding: 1rem 0;
-  }
-
   .main-header__col--logo {
     flex-basis: auto;
   }
@@ -1363,13 +1360,6 @@ body.admin-bar .slideout-menu {
     align-items: center;
   }
 }
-
-@media (min-width: 1280px){
-  .main-header {
-    padding: 1.5rem 0;
-  }
-}
-
 
 /* ==================== */
 /* Main Nav
