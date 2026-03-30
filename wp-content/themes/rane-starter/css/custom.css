@@ -533,6 +533,14 @@ h1, h2, h3, h4, h5, h6,
   text-transform: none;
 }
 
+.main-browse-nav > li > a {
+  color: var(--sprayrite-ink) !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+}
+
 .sprayrite-home,
 .site-header {
   background: #fff;
@@ -558,7 +566,7 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
   object-fit: cover;
   object-position: center;
-  transform: scaleY(-1);
+  transform: scaleX(-1);
   width: 100%;
 }
 
@@ -587,6 +595,10 @@ h1, h2, h3, h4, h5, h6,
   white-space: nowrap;
 }
 
+.sprayrite-hero__title span:last-child {
+  white-space: nowrap;
+}
+
 .sprayrite-hero__offer {
   align-items: baseline;
   display: flex;
@@ -607,6 +619,10 @@ h1, h2, h3, h4, h5, h6,
 .sprayrite-hero .slick-dots li button:before {
   color: var(--sprayrite-green);
   font-size: 10px;
+}
+
+.sprayrite-hero__slide.slick-slide {
+  margin-bottom: 30px;
 }
 
 .sprayrite-usp {
@@ -1045,6 +1061,12 @@ h1, h2, h3, h4, h5, h6,
   .main-browse-nav {
     flex-wrap: wrap;
     gap: 1rem 1.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-browse-nav > li > a {
+    font-size: 16px !important;
   }
 }
 
