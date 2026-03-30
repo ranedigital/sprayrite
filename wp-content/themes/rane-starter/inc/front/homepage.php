@@ -100,13 +100,13 @@ $review_cards      = rane_digital_get_reviews( 3 );
 
 	<section class="sprayrite-usp">
 		<div class="container">
-			<div class="sprayrite-usp__grid">
-				<?php foreach ( $selling_points as $card ) : ?>
+			<div class="sprayrite-usp__grid ag-fade-sequence" data-ag-fade-sequence>
+				<?php foreach ( $selling_points as $index => $card ) : ?>
 					<?php
 					$card_image = ! empty( $card['image']['url'] ) ? $card['image']['url'] : ( ! empty( $card['image'] ) ? $card['image'] : '' );
 					$card_style = ! empty( $card['background_style'] ) ? $card['background_style'] : 'green';
 					?>
-					<article class="sprayrite-usp__card sprayrite-usp__card--<?php echo esc_attr( $card_style ); ?>"<?php echo $card_image ? ' style="background-image: url(\'' . esc_url( $card_image ) . '\');"' : ''; ?>>
+					<article class="sprayrite-usp__card sprayrite-usp__card--<?php echo esc_attr( $card_style ); ?> ag-fade-item" data-ag-fade-item style="<?php echo esc_attr( '--ag-fade-delay:' . ( $index * 120 ) . 'ms;' ); ?><?php echo $card_image ? 'background-image:url(\'' . esc_url( $card_image ) . '\');' : ''; ?>">
 						<h2><?php echo esc_html( $card['title'] ); ?></h2>
 						<p><?php echo esc_html( $card['text'] ); ?></p>
 					</article>
@@ -117,13 +117,13 @@ $review_cards      = rane_digital_get_reviews( 3 );
 
 	<section class="sprayrite-feature-tiles">
 		<div class="container">
-			<div class="sprayrite-feature-tiles__grid">
-				<?php foreach ( $feature_tiles as $tile ) : ?>
+			<div class="sprayrite-feature-tiles__grid ag-fade-sequence" data-ag-fade-sequence>
+				<?php foreach ( $feature_tiles as $index => $tile ) : ?>
 					<?php
 					$tile_image = ! empty( $tile['image']['url'] ) ? $tile['image']['url'] : ( ! empty( $tile['image'] ) ? $tile['image'] : '' );
 					$tile_link  = ! empty( $tile['button_link']['url'] ) ? $tile['button_link']['url'] : ( ! empty( $tile['button_link'] ) ? $tile['button_link'] : home_url( '/' ) );
 					?>
-					<article class="sprayrite-feature-tile">
+					<article class="sprayrite-feature-tile ag-fade-item" data-ag-fade-item style="<?php echo esc_attr( '--ag-fade-delay:' . ( $index * 140 ) . 'ms;' ); ?>">
 						<?php if ( $tile_image ) : ?>
 							<div class="sprayrite-feature-tile__media">
 								<img src="<?php echo esc_url( $tile_image ); ?>" alt="" class="sprayrite-feature-tile__image">
@@ -148,9 +148,9 @@ $review_cards      = rane_digital_get_reviews( 3 );
 				<h2><?php echo esc_html( $best_sellers['title'] ); ?></h2>
 				<p><?php echo esc_html( $best_sellers['intro'] ); ?></p>
 			</header>
-			<div class="sprayrite-products sprayrite-products--four">
-				<?php foreach ( $best_seller_cards as $product ) : ?>
-					<article class="sprayrite-product-card">
+			<div class="sprayrite-products sprayrite-products--four ag-fade-sequence" data-ag-fade-sequence>
+				<?php foreach ( $best_seller_cards as $index => $product ) : ?>
+					<article class="sprayrite-product-card ag-fade-item" data-ag-fade-item style="<?php echo esc_attr( '--ag-fade-delay:' . ( $index * 100 ) . 'ms;' ); ?>">
 						<a class="sprayrite-product-card__image" href="<?php echo esc_url( $product['link'] ); ?>">
 							<img src="<?php echo esc_url( $product['image'] ); ?>" alt="<?php echo esc_attr( $product['title'] ); ?>">
 						</a>
@@ -194,9 +194,9 @@ $review_cards      = rane_digital_get_reviews( 3 );
 				<h2><?php echo esc_html( $special_offers['title'] ); ?></h2>
 				<p><?php echo esc_html( $special_offers['intro'] ); ?></p>
 			</header>
-			<div class="sprayrite-products sprayrite-products--eight">
-				<?php foreach ( $offer_cards as $product ) : ?>
-					<article class="sprayrite-product-card">
+			<div class="sprayrite-products sprayrite-products--eight ag-fade-sequence" data-ag-fade-sequence>
+				<?php foreach ( $offer_cards as $index => $product ) : ?>
+					<article class="sprayrite-product-card ag-fade-item" data-ag-fade-item style="<?php echo esc_attr( '--ag-fade-delay:' . ( $index * 80 ) . 'ms;' ); ?>">
 						<a class="sprayrite-product-card__image" href="<?php echo esc_url( $product['link'] ); ?>">
 							<img src="<?php echo esc_url( $product['image'] ); ?>" alt="<?php echo esc_attr( $product['title'] ); ?>">
 						</a>
@@ -220,9 +220,9 @@ $review_cards      = rane_digital_get_reviews( 3 );
 				<h2><?php echo esc_html( $reviews_section['title'] ); ?></h2>
 				<p><?php echo esc_html( $reviews_section['intro'] ); ?></p>
 			</header>
-			<div class="sprayrite-reviews__grid js-sprayrite-reviews">
-				<?php foreach ( $review_cards as $review ) : ?>
-					<article class="sprayrite-review-card">
+			<div class="sprayrite-reviews__grid js-sprayrite-reviews ag-fade-sequence" data-ag-fade-sequence>
+				<?php foreach ( $review_cards as $index => $review ) : ?>
+					<article class="sprayrite-review-card ag-fade-item" data-ag-fade-item style="<?php echo esc_attr( '--ag-fade-delay:' . ( $index * 120 ) . 'ms;' ); ?>">
 						<div class="sprayrite-review-card__stars" aria-label="<?php echo esc_attr( $review['rating'] ); ?> out of 5 stars">
 							<?php for ( $i = 0; $i < 5; $i++ ) : ?>
 								<span><?php echo $i < (int) $review['rating'] ? '★' : '☆'; ?></span>
