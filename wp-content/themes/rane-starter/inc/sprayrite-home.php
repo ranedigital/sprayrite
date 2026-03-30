@@ -36,7 +36,9 @@ function rane_digital_theme_asset_uri( $path ) {
 function rane_digital_get_default_homepage_data() {
 	$shop_url    = rane_digital_has_woocommerce() ? get_permalink( wc_get_page_id( 'shop' ) ) : home_url( '/shop/' );
 	$reviews_url = home_url( '/reviews/' );
-	$hero_image  = rane_digital_theme_asset_uri( 'assets/home/hero-slide.jpg' );
+	$hero_image  = file_exists( get_template_directory() . '/images/hero-1.jpg' )
+		? rane_digital_theme_asset_uri( 'images/hero-1.jpg' )
+		: rane_digital_theme_asset_uri( 'assets/home/hero-slide.jpg' );
 
 	$slides = array(
 		array(
